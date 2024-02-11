@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,16 +17,19 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="article">
-<meta property="og:title" content="4种矩阵乘法规则为什么不冲突">
+    <meta name="description" content="为什么矩阵乘法定义要那样定义？为什么四种矩阵乘法运算规则相互之间不冲突?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么四种矩阵乘法运算规则相互之间不冲突?">
 <meta property="og:url" content="http://example.com/2023/12/21/4%E7%A7%8D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E8%A7%84%E5%88%99%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%86%B2%E7%AA%81/index.html">
 <meta property="og:site_name" content="Why?">
-<meta property="og:locale" content="en_US">
+<meta property="og:description" content="为什么矩阵乘法定义要那样定义？为什么四种矩阵乘法运算规则相互之间不冲突?">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-21T06:25:50.000Z">
-<meta property="article:modified_time" content="2023-12-21T06:25:52.000Z">
+<meta property="article:modified_time" content="2024-02-11T11:09:56.000Z">
 <meta property="article:author" content="Liu Cong">
+<meta property="article:tag" content="The introduction to linear algebra">
 <meta name="twitter:card" content="summary">
 
 
@@ -34,10 +37,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/12/21/4%E7%A7%8D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E8%A7%84%E5%88%99%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%86%B2%E7%AA%81/","path":"2023/12/21/4种矩阵乘法规则为什么不冲突/","title":"4种矩阵乘法规则为什么不冲突"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/12/21/4%E7%A7%8D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E8%A7%84%E5%88%99%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%86%B2%E7%AA%81/","path":"2023/12/21/4种矩阵乘法规则为什么不冲突/","title":"为什么四种矩阵乘法运算规则相互之间不冲突?"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>4种矩阵乘法规则为什么不冲突 | Why?</title>
+<title>为什么四种矩阵乘法运算规则相互之间不冲突? | Why?</title>
   
 
 
@@ -59,7 +62,10 @@
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -70,38 +76,67 @@
       <p class="site-title">Why?</p>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">1st edition</p>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container">
+  <div class="algolia-stats"><hr></div>
+  <div class="algolia-hits"></div>
+  <div class="algolia-pagination"></div>
+</div>
+
+    </div>
+  </div>
 
 </header>
         
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#q2%E5%9B%9B%E7%A7%8D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99%E7%9B%B8%E4%BA%92%E4%B9%8B%E9%97%B4%E4%B8%8D%E5%86%B2%E7%AA%81%E7%9A%84%E6%95%B0%E5%AD%A6%E8%AF%81%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">Q2:四种矩阵乘法运算规则相互之间不冲突的数学证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#q3%E6%95%B0%E5%AD%A6%E4%B8%8A%E5%9B%9B%E7%A7%8D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99%E7%9B%B8%E4%BA%92%E4%B9%8B%E9%97%B4%E4%B8%8D%E5%86%B2%E7%AA%81%E4%BD%86%E6%98%AF%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E5%85%B6%E4%BB%96%E4%B8%89%E7%A7%8D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E8%A7%84%E5%88%99%E5%91%A2%E5%85%B6%E4%BB%96%E4%B8%89%E7%A7%8D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E8%A7%84%E5%88%99%E6%98%AF%E5%A6%82%E4%BD%95%E8%A2%AB%E6%80%9D%E8%80%83%E5%87%BA%E6%9D%A5%E7%9A%84%E5%91%A2%E4%BA%8B%E5%AE%9E%E4%B8%8A%E7%9F%A5%E9%81%93%E4%BA%86%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99%E7%9A%84%E5%AE%9A%E4%B9%89%E5%BC%8F%E4%B9%8B%E5%90%8E%E5%BE%88%E9%9A%BE%E7%9B%B4%E6%8E%A5%E8%81%94%E6%83%B3%E5%87%BA%E5%85%B6%E4%BB%96%E4%B8%89%E7%A7%8D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E8%A7%84%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">Q3:数学上四种矩阵乘法运算规则相互之间不冲突，但是我们为什么要用其他三种矩阵乘法规则呢？其他三种矩阵乘法规则是如何被思考出来的呢？(事实上，知道了矩阵乘法运算规则的定义式之后，很难直接联想出其他三种矩阵乘法规则)</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -115,8 +150,18 @@
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
           <span class="site-state-item-count">8</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -141,7 +186,7 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/21/4%E7%A7%8D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E8%A7%84%E5%88%99%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%86%B2%E7%AA%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -155,12 +200,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="4种矩阵乘法规则为什么不冲突 | Why?">
+      <meta itemprop="name" content="为什么四种矩阵乘法运算规则相互之间不冲突? | Why?">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          4种矩阵乘法规则为什么不冲突
+          为什么四种矩阵乘法运算规则相互之间不冲突?
         </h1>
 
         <div class="post-meta-container">
@@ -169,10 +214,33 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2023-12-21 14:25:50 / Modified: 14:25:52" itemprop="dateCreated datePublished" datetime="2023-12-21T14:25:50+08:00">2023-12-21</time>
+      <time title="创建时间：2023-12-21 14:25:50" itemprop="dateCreated datePublished" datetime="2023-12-21T14:25:50+08:00">2023-12-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-02-11 19:09:56" itemprop="dateModified" datetime="2024-02-11T19:09:56+08:00">2024-02-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linear-algebra/" itemprop="url" rel="index"><span itemprop="name">Linear algebra</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linear-algebra/why/" itemprop="url" rel="index"><span itemprop="name">why</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linear-algebra/why/review/" itemprop="url" rel="index"><span itemprop="name">review</span></a>
+        </span>
     </span>
 
   
@@ -184,7 +252,61 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody"><p>为什么矩阵乘法定义要那样定义？为什么四种矩阵乘法运算规则相互之间不冲突?
+<span id="more"></span> ## Q1:四种矩阵乘法运算规则计算方法
+  矩阵的乘法运算规则有四种，其中，我们最先接触且使用最广的，是矩阵乘法的定义，例如：假设这里有两个矩阵,<span
+class="math inline">\(A_{m \times n}\)</span>和<span
+class="math inline">\(B_{n \times p}\)</span>，且其乘积<span
+class="math inline">\(A_{m \times n}B_{n \times p}=C_{m \times
+p}\)</span>，则：矩阵<span class="math inline">\(C\)</span>中第<span
+class="math inline">\(i\)</span>行第<span
+class="math inline">\(j\)</span>列个元素等于矩阵<span
+class="math inline">\(A\)</span>中第<span
+class="math inline">\(i\)</span>行的元素与<span
+class="math inline">\(B\)</span>中第<span
+class="math inline">\(j\)</span>列的元素对应相乘并求和。 即：<span
+class="math inline">\(\textcolor{red}{c_{ij}=\sum\limits
+_{k=1}^{n}a_{ik}b_{kj}}\)</span>，其中，矩阵<span
+class="math inline">\(A\)</span>，<span
+class="math inline">\(B\)</span>，<span
+class="math inline">\(C\)</span>中，位于第<span
+class="math inline">\(i\)</span>行第<span
+class="math inline">\(j\)</span>列的元素分别用<span
+class="math inline">\(a_{ij}\)</span>，<span
+class="math inline">\(b_{ij}\)</span>，<span
+class="math inline">\(c_{ij}\)</span>表示。
+  除此之外，其他三种矩阵乘法运算规则为：(1)矩阵<span
+class="math inline">\(C\)</span>中第<span
+class="math inline">\(i\)</span>行元素为</p>
+<h2
+id="q2四种矩阵乘法运算规则相互之间不冲突的数学证明">Q2:四种矩阵乘法运算规则相互之间不冲突的数学证明</h2>
+<h2
+id="q3数学上四种矩阵乘法运算规则相互之间不冲突但是我们为什么要用其他三种矩阵乘法规则呢其他三种矩阵乘法规则是如何被思考出来的呢事实上知道了矩阵乘法运算规则的定义式之后很难直接联想出其他三种矩阵乘法规则">Q3:数学上四种矩阵乘法运算规则相互之间不冲突，但是我们为什么要用其他三种矩阵乘法规则呢？其他三种矩阵乘法规则是如何被思考出来的呢？(事实上，知道了矩阵乘法运算规则的定义式之后，很难直接联想出其他三种矩阵乘法规则)</h2>
+<!--\begin{pmatrix}
+ a_{11} & a_{12} & \cdots & a_{1n} \\
+ a_{21} & a_{22} & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ \color{red}a_{i1} & \color{red}a_{i2} & \color{red}\cdots & \color{red}a_{in} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{pmatrix}
+\begin{pmatrix}
+ b_{11} & b_{12} & \cdots & \color{red}b_{1j} & \cdots & b_{1p} \\
+ b_{21} & b_{22} & \cdots & \color{red}b_{2j} & \cdots & b_{2p} \\
+ \vdots & \vdots & \ddots & \color{red}\vdots & \ddots & \vdots\\
+ b_{n1} & b_{n2} & \cdots & \color{red}b_{nj} & \cdots & b_{np} \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+ \sum \limits _{k=1}^{n}a_{1k}b_{k1} & \sum \limits _{k=1}^{n}a_{1k}b_{k2} & \cdots & \sum \limits _{k=1}^{n}a_{1k}b_{kj} & \cdots & \sum \limits _{k=1}^{n}a_{1k}b_{kn} \\
+ \sum \limits _{k=1}^{n}a_{2k}b_{k1} & \sum \limits _{k=1}^{n}a_{2k}b_{k2} & \cdots & \sum \limits _{k=1}^{n}a_{2k}b_{kj} & \cdots & \sum \limits _{k=1}^{n}a_{2k}b_{kn} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ \sum \limits _{k=1}^{n}a_{2k}b_{k1} & \sum \limits _{k=1}^{n}a_{2k}b_{k2} & \cdots & \sum \limits _{k=1}^{n}a_{2k}b_{kj} & \cdots & \sum \limits _{k=1}^{n}a_{2k}b_{kn} \\
+ \vdots & \vdots & \ddots & \color{red}\vdots & \ddots & \vdots\\
+ b_{m1} & b_{m2} & \cdots & \cdots & \sum \limits _{k=1}^{n}a_{mk}b_{kj} & \cdots & b_{mn} \\
+\end{pmatrix}
+$ -->
+
     </div>
 
     
@@ -192,6 +314,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/The-introduction-to-linear-algebra/" rel="tag"># The introduction to linear algebra</a>
+          </div>
 
         
 
@@ -230,14 +355,14 @@
     </span>
     <span class="author" itemprop="copyrightHolder">Liu Cong</span>
   </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="back-to-top" role="button" aria-label="Back to top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
   </div>
@@ -251,16 +376,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/4.20.0/algoliasearch-lite.umd.js" integrity="sha256-DABVk+hYj0mdUzo+7ViJC6cwLahQIejFvC+my2M/wfM=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/4.60.0/instantsearch.production.min.js" integrity="sha256-9242vN47QUX50UG5Gf5XDO1YREWCEJRyXHofh5fsl24=" crossorigin="anonymous"></script><script src="/js/third-party/search/algolia-search.js"></script>
+
+
+
+
+
+
+
   
 
 
 
 
-
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
