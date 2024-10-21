@@ -268,7 +268,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/15/LA01%20%E5%A4%8D%E4%B9%A0%EF%BC%9A%E5%90%91%E9%87%8F%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">LA01 复习：向量相关知识</a>
+          <a href="/2024/10/15/LA01%20%E5%A4%8D%E4%B9%A0%EF%BC%9A%E5%90%91%E9%87%8F%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">LA01 复习：向量相关知识--枯燥的复习</a>
         </h2>
 
         <div class="post-meta-container">
@@ -286,7 +286,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-10-21 12:51:22" itemprop="dateModified" datetime="2024-10-21T12:51:22+08:00">2024-10-21</time>
+      <time title="修改时间：2024-10-21 13:08:32" itemprop="dateModified" datetime="2024-10-21T13:08:32+08:00">2024-10-21</time>
     </span>
 
   
@@ -328,9 +328,9 @@ class="math inline">\(\vec{a} + \vec{b} = \begin{pmatrix}a_1 + b_1\\ a_2
 <p>交换律：<span class="math inline">\(\vec{a} +
 \vec{b}=\vec{b}+\vec{a}\)</span></p>
 <p>结合律：<span class="math inline">\(\vec{a} +
-(\vec{b}+\vec{c})=(\vec{a}+\vec{b})+\vec{c}\)</span></p>
-<h3 id="减法">(2) 减法</h3>
-<p>向量减法是将一个向量从另一个向量中减去。设 <span
+(\vec{b}+\vec{c})=(\vec{a}+\vec{b})+\vec{c}\)</span>
+<strong>注意</strong>：这个例子中我把两个向量按一列一列的形式写出，我当然也可以按一行一行的形式写出，后续的例子中将继续沿用列向量的形式。
+### (2) 减法 向量减法是将一个向量从另一个向量中减去。设 <span
 class="math inline">\(\vec{a}\)</span> 和 $ $
 为两个向量，则它们的减法表示为：<span class="math inline">\(\vec{a} -
 \vec{b} = \begin{pmatrix}a_1 - b_1\\ a_2 - b_2\\ a_3 - b_3
@@ -362,17 +362,27 @@ class="math inline">\(\theta\)</span>为线段<span
 class="math inline">\(\mathrm {OA}\)</span>和<span
 class="math inline">\(\mathrm {OB}\)</span>之间的夹角。</p>
 <h3 id="模长">(5) 模长</h3>
-向量的模长表示向量的大小，如果对于质点所受的力<span
-class="math inline">\(\vec{F}\)</span>，其模长为力的大小。 设 $ =
-<span class="math display">\[\begin{pmatrix} a_1\\ a_2\\ a_3
-\end{pmatrix}\]</span>
-<p>$，则 <span class="math inline">\(\vec{a}\)</span> 的模长表示为：
-<span class="math display">\[
-|\vec{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2}
-\]</span></p>
-<p>我们一般建立空间直角坐标系，要求 <span class="math inline">\(a_i
-a_j=\delta_{i,j}\)</span>。</p>
-<p><strong>注意</strong>：这个例子中我把两个向量按一列一列的形式写出，我当然也可以按一行一行的形式写出，只要满足向量的定义和向量加法的性质，</p>
+<p>向量的模长表示向量的大小，如果对于质点所受的力<span
+class="math inline">\(\vec{F}\)</span>，考虑二位情况下，<span
+class="math inline">\(\vec{F}\)</span>在<span
+class="math inline">\(x\)</span>方向和<span
+class="math inline">\(y\)</span>方向分别有两个分量<span
+class="math inline">\({F_x}\)</span>和<span
+class="math inline">\({F_y}\)</span>，即：<span
+class="math inline">\(\vec{F}=({F_x},{F_y})\)</span>，那么应该怎么表示这个在二维空间中的力的大小呢？没错！<span
+class="math inline">\(F=|\vec{F}|=\sqrt{F_x^2 +
+F_y^2}\)</span>，其模长为力的大小。 对于空间中的任意一个向量，设<span
+class="math inline">\(\vec{a} =\begin{pmatrix} a_1\\ a_2\\ a_3
+\end{pmatrix}\)</span>，则 <span
+class="math inline">\(\vec{a}\)</span>的模长表示为：<span
+class="math display">\[|\vec{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2}\]</span>
+对于<span
+class="math inline">\(n\)</span>维空间中的向量，我们同样可以使用类似的公式表示模长：
+<span class="math display">\[|\vec{a}| =
+\sqrt{\sum_{i=1}^n{a_i^2}}\]</span>
+隐藏条件：我们一般建立空间直角坐标系，要求 <span
+class="math inline">\(a_i
+a_j=\delta_{i,j}\)</span>，即任意两个向量的基矢互相垂直，而且每个基矢的模长都为1。</p>
 <p>参考资料：
 1.https://baike.baidu.com/item/%E5%90%91%E9%87%8F/1396519</p>
 
