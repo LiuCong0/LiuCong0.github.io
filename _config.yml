@@ -102,7 +102,7 @@ theme: next
 deploy:
   type: git
   repo: https://github.com/LiuCong0/LiuCong0.github.io.git
-  branch: main
+  branch: master
 
 render:
   engine: pandoc
