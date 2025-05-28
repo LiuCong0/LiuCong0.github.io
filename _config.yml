@@ -102,7 +102,7 @@ theme: next
 deploy:
   type: git
   repo: git@github.com:liucong0/liucong0.github.io.git
-  branch: hexo
+  branch: main
 
 render:
   engine: pandoc
